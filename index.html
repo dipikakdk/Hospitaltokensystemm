@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>eDoc | Hospital Queue System</title>
+  <style>
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body, html { height: 100%; scroll-behavior: smooth; }
+
+    /* General Button */
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      font-size: 1rem;
+      color: #fff;
+      background-color: #0077cc;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+    .btn:hover { background-color: #005fa3; transform: scale(1.05); }
+
+    /* ====== NAVBAR ====== */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      z-index: 1000;
+    }
+    .navbar a {
+      color: #fff;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .navbar a:hover { color: #00c3ff; }
+
+    /* ====== LANDING HERO ====== */
+    .landing-hero {
+      position: relative;
+      height: 100vh;
+      background: url('https://www.sixsigmahospital.com/wp-content/uploads/2024/02/young-male-psysician-with-patient-measuring-blood-pressure-3-1536x1024.webp') no-repeat center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+    }
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      padding: 20px;
+      background: rgba(0,0,0,0.3);
+      border-radius: 12px;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      line-height: 1.5;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+
+    /* ====== AUTH FORMS (Login & Signup) ====== */
+    .auth-section {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #0077cc, #00c3ff);
+      padding-top: 80px; /* space for navbar */
+    }
+    .auth-container {
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 350px;
+    }
+    .auth-container h1 { margin-bottom: 10px; color: #0077cc; }
+    .auth-container .subtitle { margin-bottom: 20px; color: #666; font-size: 0.9rem; }
+    .form-group { text-align: left; margin-bottom: 15px; }
+    label { display: block; margin-bottom: 5px; font-weight: bold; color: #333; }
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    .auth-btn {
+      width: 100%;
+      padding: 12px;
+      background: #0077cc;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.3s;
+    }
+    .auth-btn:hover { background: #005fa3; }
+    .signup-text, .forgot-password {
+      margin-top: 15px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    .signup-text a, .forgot-password a {
+      color: #0077cc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .signup-text a:hover, .forgot-password a:hover { text-decoration: underline; }
+
+    /* Responsive */
+    @media(max-width: 768px){
+      .hero-content h1 { font-size: 2rem; }
+      .hero-content p { font-size: 1rem; }
+      .btn { padding: 10px 20px; font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar">
+    <div class="logo">eDoc</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#login">Login</a>
+      <a href="#signup">Signup</a>
+    </nav>
+  </header>
+
+  <!-- ===== LANDING PAGE ===== -->
+  <section class="landing-hero" id="home">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Welcome to eDoc</h1>
+      <p>Your health, our priority. Book your doctor online easily. Get your appointment token instantly with a single click.</p>
+      <a href="#login" class="btn">Get Token</a>
+    </div>
+  </section>
+
+  <!-- ===== LOGIN SECTION ===== -->
+  <section class="auth-section" id="login">
+    <div class="auth-container">
+      <h1>Welcome back!</h1>
+      <p class="subtitle">Login with your details</p>
+      <form>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" placeholder="Email Address" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" placeholder="Password" required />
+        </div>
+        <button type="submit" class="auth-btn">Login</button>
+      </form>
+      <p class="forgot-password"><a href="#">Forgot Password?</a></p>
+      <p class="signup-text">Don’t have an account? <a href="#signup">Sign Up</a></p>
+    </div>
+  </section>
+
+  <!-- ===== SIGNUP SECTION ===== -->
+  <section class="auth-section" id="signup">
+    <div class="auth-container">
+      <h1>Create Account</h1>
+      <p class="subtitle">Sign up to book appointments</p>
+      <form onsubmit="return validatePassword()">
+        <div class="form-group">
+          <label for="name">Full Name:</label>
+          <input type="text" id="name" placeholder="Your Name" required />
+        </div>
+        <div class="form-group">
+          <label for="signup-email">Email:</label>
+          <input type="email" id="signup-email" placeholder="Email Address" required />
+        </div>
+        <div class="form-group">
+          <label for="signup-password">Password:</label>
+          <input type="password" id="signup-password" placeholder="Password" required />
+        </div>
+        <div class="form-group">
+          <label for="confirm-password">Confirm Password:</label>
+          <input type="password" id="confirm-password" placeholder="Re-enter Password" required />
+        </div>
+        <button type="submit" class="auth-btn">Sign Up</button>
+      </form>
+      <p class="signup-text">Already have an account? <a href="#login">Login</a></p>
+    </div>
+  </section>
+
+  <!-- ===== SCRIPT FOR PASSWORD CHECK ===== -->
+  <script>
+    function validatePassword() {
+      const pass = document.getElementById("signup-password").value;
+      const confirm = document.getElementById("confirm-password").value;
+      if (pass !== confirm) {
+        alert("Passwords do not match!");
+        return false; // prevent form submission
+      }
+      return true;
+    }
+  </script>
+
+</body>
+</html>
